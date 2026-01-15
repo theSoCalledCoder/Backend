@@ -2,10 +2,7 @@ package org.example.servlet;
 
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.Cookie;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -47,7 +44,13 @@ public class second extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         out.println("<h1>Hello from GET2</h1>");
-        String name=request.getParameter("user_name");
+
+        HttpSession hs= request.getSession(false);
+        String name=null;
+        if(hs!=null){
+            name=(String)hs.getAttribute("name");
+        }
+//        String name=request.getParameter("user_name");
 //        String name = null;
 //        Cookie[] cookies = request.getCookies();
 //

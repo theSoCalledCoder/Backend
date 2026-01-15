@@ -1,8 +1,10 @@
 package org.example.servlet;
 
 import java.io.*;
+import java.util.Enumeration;
 
 import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -20,17 +22,22 @@ public class HelloServlet extends HttpServlet {
 
         // Hello
         String user_name = request.getParameter("name");
+        HttpSession hs= request.getSession();
+        hs.setAttribute("name",user_name);
 //        Cookie cookies=new Cookie("username",name);
 //        response.addCookie(cookies);
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
         out.println("<h1>" + message + "</h1>");
+        out.println("<a href=second>Go to second servlet</a>");;
 //        out.println("<h3> <a href=second?name="+user_name+"> want to meet the second servlet? </h3>");
 
-        out.println("<form action='second' method='get'>");
-        out.println("<input type='hidden' name='user_name' value= "+ user_name+">");
-        out.println("<input type='submit' value='got to the second website'>");
-        out.println("</form>");
+//        out.println("<form action='second' method='get'>");
+//        out.println("<input type='hidden' name='user_name' value= "+ user_name+">");
+//        out.println("<input type='submit' value='got to the second website'>");
+//        out.println("</form>");
+
+
 
 
 
