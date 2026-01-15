@@ -19,13 +19,13 @@ public class HelloServlet extends HttpServlet {
         response.setContentType("text/html");
 
         // Hello
-        String name = request.getParameter("name");
-        Cookie cookies=new Cookie("username",name);
-        response.addCookie(cookies);
+        String user_name = request.getParameter("name");
+//        Cookie cookies=new Cookie("username",name);
+//        response.addCookie(cookies);
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
         out.println("<h1>" + message + "</h1>");
-        out.println("<h3> <a href=second> want to meet the second servlet? </h3>");
+        out.println("<h3> <a href=second?name="+user_name+"> want to meet the second servlet? </h3>");
         out.println("</body></html>");
 
 
