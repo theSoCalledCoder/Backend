@@ -21,6 +21,8 @@ public class second extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         PrintWriter out= response.getWriter();
         out.println("<a href=\"hello\">Hello</a>");
+        String name=request.getParameter("user_name");
+        out.println("Hello " + name + " welcome back");
 //        String name = null;
 //        Cookie[] cookies = request.getCookies();
 //
@@ -45,7 +47,7 @@ public class second extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         out.println("<h1>Hello from GET2</h1>");
-        String name=request.getParameter("name");
+        String name=request.getParameter("user_name");
 //        String name = null;
 //        Cookie[] cookies = request.getCookies();
 //
